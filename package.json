@@ -1,0 +1,53 @@
+{
+  "name": "@kartverket/geonorge-web-components",
+  "version": "0.2.16",
+  "description": "Geonorge Web Components",
+  "keywords": [
+    "Web Components, Custom Elements"
+  ],
+  "author": "Kartverket",
+  "license": "GPL-3.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/kartverket/Geonorge.WebComponents.git",
+    "directory": "packages/geonorge-web-components"
+  },
+  "scripts": {
+    "start": "webpack serve --port 9000 --host 0.0.0.0 --progress --profile --mode development",
+    "build": "npm run clean && webpack --config webpack.config.js --mode production && npm run copy-demo-files",
+    "release": "npm run build && npm run copy-files && npm run clean-package && npm publish --access public ./tmp && npm run clean:tmp",
+    "release:test": "npm run build && npm run copy-files && npm run clean-package",
+    "copy-files": "copyfiles -f \"./lib/**/*\" \"./package.json\" tmp",
+    "clean-package": "json -I -f ./tmp/package.json -e \"delete this.devDependencies; delete this.scripts\"",
+    "clean:lib": "shx rm -rf lib",
+    "clean:tmp": "shx rm -rf tmp",
+    "clean:docs": "shx rm -rf docs",
+    "copy-demo-files": "copyfiles -f \"./lib/*\" \"./demo/**/*\" docs",
+    "clean": "npm run clean:lib && npm run clean:docs"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "copyfiles": "^2.3.0",
+    "css-loader": "^6.2.0",
+    "file-loader": "^6.1.0",
+    "json": "^11.0.0",
+    "raw-loader": "^4.0.1",
+    "sass": "^1.26.10",
+    "sass-loader": "^13.0.0",
+    "shx": "^0.3.2",
+    "source-map-loader": "^4.0.0",
+    "style-loader": "^3.3.1",
+    "super-custom-elements": "0.0.2",
+    "svg-inline-loader": "^0.8.2",
+    "ts-loader": "^9.2.2",
+    "typescript": "^4.0.3",
+    "webpack": "^5.1.3",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^4.9.0"
+  }
+}
