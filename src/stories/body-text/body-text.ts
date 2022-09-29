@@ -12,9 +12,8 @@ export interface BodyTextOptions extends CustomElementOptions {
 })
 export class BodyText extends CustomElement {
 
-    constructor(props) {
+    constructor() {
         super();
-        console.log(props);
     }
 
     setup(options?: BodyTextOptions): void {}
