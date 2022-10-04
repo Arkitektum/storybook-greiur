@@ -18,11 +18,11 @@ const htmlContent = document.createElement('h1');
 
 htmlContent.innerHTML = 'Overskrift';
 
-const Template = (props) => html`<heading>${props.children}</heading>`;
+const Template = (props) => html`<heading-text>${props.children}</heading-text>`;
 
 
-export const Default = Template.bind({});
+export const H1 = Template.bind({});
 // More on args: https://storybook.js.org/docs/web-components/writing-stories/args
-Default.args = {
+H1.args = {
   children: html`<h1>normal tekst</h1>`
 };
