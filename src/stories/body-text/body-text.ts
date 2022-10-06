@@ -10,6 +10,8 @@ export interface BodyTextOptions extends CustomElementOptions {
     template: import("./body-text.html"),
     style: import("./body-text.scss")
 })
+
+
 export class BodyText extends CustomElement {
 
     constructor() {
